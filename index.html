@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voice-Controlled Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+    <div id="coordsDisplay">Move mouse over the map</div>
+    <div id="map"></div>
+    <div id="historyBox">
+        <h4>Recent Commands</h4>
+        <div id="historyList"></div>
+    </div>
+
+    <div class="control-panel">
+        <div class="mic-container">
+            <button id="toggleMic" class="mic-button">
+                <i class="fas fa-microphone"></i>
+                <div class="mic-waves"></div>
+            </button>
+            <div id="status" class="status-container">Microphone disabled</div>
+        </div>
+        <div class="layer-control">
+            <div class="layer-dropdown">
+                <div class="layer-dropdown-header">
+                    <span class="selected-layer">Satellite View</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="layer-dropdown-content">
+                    <div class="layer-option" data-value="satellite">
+                        <i class="fas fa-satellite"></i>
+                        <span>Satellite View</span>
+                    </div>
+                    <div class="layer-option" data-value="road">
+                        <i class="fas fa-road"></i>
+                        <span>Road Layer</span>
+                    </div>
+                    <div class="layer-option" data-value="terrain">
+                        <i class="fas fa-mountain"></i>
+                        <span>Terrain View</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

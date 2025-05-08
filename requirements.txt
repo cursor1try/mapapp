@@ -1,0 +1,5 @@
+Flask==2.0.3
+Flask-SocketIO==5.1.1
+SpeechRecognition==3.8.1
+pydub==0.25.1
+requests==2.26.0
